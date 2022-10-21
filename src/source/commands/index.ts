@@ -1,7 +1,16 @@
 import { commands } from "../../index";
 
+import type { RESTPostAPIChatInputApplicationCommandsJSONBody } from "discord.js";
+
+const commandsArray: RESTPostAPIChatInputApplicationCommandsJSONBody[] = [];
+
 import games from "./games";
 
-commands.set(games.data.name, games);
+const COMMANDS = [games];
 
-export default commands;
+COMMANDS.forEach((cmd) => {
+  commands.set(cmd.data.name, cmd);
+  commandsArray.push(cmd.data.toJSON());
+});
+
+export default { commands, commandsArray };

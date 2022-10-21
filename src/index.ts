@@ -23,11 +23,11 @@ if (!Array.isArray(config.bot.intents)) {
 
 export const client = new Client({ intents: finalIntents });
 
-client.on("interactionCreate", (i) => {});
-
 export const commands = new Collection();
+export const components = new Collection();
 
 const events = fs
+  // *Change /src/ in the line below to /dist/ before you build, also change the .ts filter to .js
   .readdirSync("./src/source/events")
   .filter((file) => file.endsWith(".ts"));
 events.forEach((event) => require(`./source/events/${event}`));

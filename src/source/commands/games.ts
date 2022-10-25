@@ -26,6 +26,14 @@ export async function run(interaction: CommandInteraction) {
           {
             type: ComponentType.Button,
             label: undefined,
+            customId: "btn-0",
+            style: ButtonStyle.Secondary,
+            emoji: "<:space:1033134191082217483>",
+            disabled: false,
+          },
+          {
+            type: ComponentType.Button,
+            label: undefined,
             customId: "btn-1",
             style: ButtonStyle.Secondary,
             emoji: "<:space:1033134191082217483>",
@@ -39,6 +47,11 @@ export async function run(interaction: CommandInteraction) {
             emoji: "<:space:1033134191082217483>",
             disabled: false,
           },
+        ],
+      },
+      {
+        type: 1,
+        components: [
           {
             type: ComponentType.Button,
             label: undefined,
@@ -47,11 +60,6 @@ export async function run(interaction: CommandInteraction) {
             emoji: "<:space:1033134191082217483>",
             disabled: false,
           },
-        ],
-      },
-      {
-        type: 1,
-        components: [
           {
             type: ComponentType.Button,
             label: undefined,
@@ -68,6 +76,11 @@ export async function run(interaction: CommandInteraction) {
             emoji: "<:space:1033134191082217483>",
             disabled: false,
           },
+        ],
+      },
+      {
+        type: 1,
+        components: [
           {
             type: ComponentType.Button,
             label: undefined,
@@ -76,11 +89,6 @@ export async function run(interaction: CommandInteraction) {
             emoji: "<:space:1033134191082217483>",
             disabled: false,
           },
-        ],
-      },
-      {
-        type: 1,
-        components: [
           {
             type: ComponentType.Button,
             label: undefined,
@@ -93,14 +101,6 @@ export async function run(interaction: CommandInteraction) {
             type: ComponentType.Button,
             label: undefined,
             customId: "btn-8",
-            style: ButtonStyle.Secondary,
-            emoji: "<:space:1033134191082217483>",
-            disabled: false,
-          },
-          {
-            type: ComponentType.Button,
-            label: undefined,
-            customId: "btn-9",
             style: ButtonStyle.Secondary,
             emoji: "<:space:1033134191082217483>",
             disabled: false,

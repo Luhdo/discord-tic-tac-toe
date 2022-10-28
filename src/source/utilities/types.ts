@@ -16,3 +16,11 @@ export type componentFileProps = {
     ButtonInteraction: ButtonInteraction | SelectMenuInteraction
   ) => Promise<void>;
 };
+
+export type Match = {
+  player: string;
+  X: string;
+  O?: string | null;
+  result: string;
+  cells: string[];
+};

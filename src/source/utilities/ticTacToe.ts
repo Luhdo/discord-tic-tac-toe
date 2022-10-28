@@ -1,5 +1,7 @@
 import { ButtonInteraction } from "discord.js";
 
+import type { Match } from "./types";
+
 const Matches = new Map();
 
 let conditions = [
@@ -15,6 +17,10 @@ let conditions = [
 
 export default function ticTacToe() {}
 
+export function handleReset(msgId: string) {
+  Matches.delete(msgId);
+}
+
 export async function runButton(interaction: ButtonInteraction) {
   if (!Matches.has(interaction.message.id))
     Matches.set(interaction.message.id, {
@@ -25,7 +31,7 @@ export async function runButton(interaction: ButtonInteraction) {
       cells: ["", "", "", "", "", "", "", "", ""],
     });
 
-  const Match = Matches.get(interaction.message.id);
+  const Match: Match = Matches.get(interaction.message.id);
 
   const num = parseInt(interaction.customId.split("-")[1]);
   let row = 0;
@@ -41,7 +47,7 @@ export async function runButton(interaction: ButtonInteraction) {
 
   Match.cells[num] = Match.player;
   Match.player = Match.player == "X" ? "O" : "X";
-  Match.result = `Player ${Match.player} Turn`;
+  Match.result = `Player **${Match.player}** Turn`;
 
   for (const condition of conditions) {
     let a = Match.cells[condition[0]];
@@ -69,6 +75,11 @@ export async function runButton(interaction: ButtonInteraction) {
         const component1 = components[row1].components[num1 - row1 * 3] as any;
         component1.data.style = 3;
       });
+    } else if (
+      !Match.cells.some((f) => f == "") &&
+      !Match.result.endsWith("🎉")
+    ) {
+      Match.result = `The match was equalized`;
     }
   }
 
